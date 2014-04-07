@@ -1,4 +1,4 @@
-AUTOMYSQLBACKUP
+Automysqlbackup
 ===============
 
 Install the automysqlbackup utility.
@@ -21,13 +21,13 @@ Variables:
       <td>automysqlbackup_username</td>
       <td>string</td>
       <td>The database user that will perform the backups</td>
-      <td>Debian system maintaince user</td>
+      <td>debian-sys-maint user</td>
     </tr>  
     <tr>
       <td>automysqlbackup_password</td>
       <td>string</td>
       <td>Password for the above user</td>
-      <td>Debian system maintaince user password</td>
+      <td>debian-sys-maint user password</td>
     </tr>   
     <tr>
       <td>automysqlbackup_host</td>
