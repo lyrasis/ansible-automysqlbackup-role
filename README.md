@@ -1,6 +1,8 @@
 Automysqlbackup
 ===============
 
+[![Build Status](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role.svg?branch=master)](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role)
+
 Install the automysqlbackup utility.
 
 ---
