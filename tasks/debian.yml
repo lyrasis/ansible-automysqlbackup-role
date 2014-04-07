@@ -12,12 +12,6 @@
   tags:
     - automysqlbackup
 
-- name: Debian | run apt upgrade (security)
-  sudo: yes
-  apt: upgrade=safe
-  tags:
-    - automysqlbackup
-
 - name: Debian | install automysqlbackup
   sudo: yes
   apt: pkg=automysqlbackup state=latest
