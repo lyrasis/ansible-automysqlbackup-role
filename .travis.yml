@@ -17,4 +17,4 @@ script:
   - echo localhost > inventory
   - ansible-playbook --syntax-check -i inventory role.yml
   - ansible-playbook -i inventory role.yml --connection=local --sudo -vvvv
-  - sudo /usr/sbin/automysqlbackup
+  - /usr/sbin/automysqlbackup
