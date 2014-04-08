@@ -59,7 +59,7 @@ DBEXCLUDE="{{ automysqlbackup_dbexclude }}"
 CREATE_DATABASE={{ automysqlbackup_createdb_stmt }}
 
 # Separate backup directory and file for each DB? (yes or no)
-SEPDIR=yes
+SEPDIR={{ automysqlbackup_sepdir }}
 
 # Which day do you want weekly backups? (1 to 7 where 1 is Monday)
 DOWEEKLY={{ automysqlbackup_doweekly }}

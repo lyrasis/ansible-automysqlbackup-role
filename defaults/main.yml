@@ -3,10 +3,11 @@
 automysqlbackup_username: "$(grep user /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
 automysqlbackup_password: "$(grep password /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
 automysqlbackup_host: localhost
-automysqlbackup_dbames: "$(mysql --defaults-file=/etc/mysql/debian.cnf --execute='SHOW DATABASES' | awk '{print $1}' | grep -v ^Database$ | grep -v ^mysql$ | tr \\\r\\\n ,\ )"
+automysqlbackup_dbames: "all"
 automysqlbackup_dbexclude: ""
 automysqlbackup_createdb_stmt: "yes"
 automysqlbackup_backup_directory: /var/lib/automysqlbackup
+automysqlbackup_sepdir: "yes"
 automysqlbackup_doweekly: 6
 automysqlbackup_mailcontent: quiet
 automysqlbackup_mailaddr: root

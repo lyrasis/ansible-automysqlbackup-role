@@ -61,6 +61,12 @@ Variables:
       <td>/var/lib/automysqlbackup</td>
     </tr>
     <tr>
+      <td>automysqlbackup_sepdir</td>
+      <td>string</td>
+      <td>Backup directory per database, or to a single file</td>
+      <td>yes</td>
+    </tr>
+    <tr>
       <td>automysqlbackup_doweekly</td>
       <td>integer</td>
       <td>Integer to reflect weekly backup day occurence</td>
