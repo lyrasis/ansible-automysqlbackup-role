@@ -20,6 +20,12 @@
   tags:
     - automysqlbackup
 
+- name: remove the cron.daily file
+  sudo: yes
+  file: path=/etc/cron.daily/automysqlbackup state=absent
+  tags:
+    - automysqlbackup
+
 - name: add automysqlbackup cron job
   sudo: yes
   cron:
