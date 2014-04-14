@@ -7,97 +7,36 @@ Install the automysqlbackup utility.
 
 ---
 
-Variables:
-
-<table>
-  <thead>
-    <tr>
-      <th>Variable</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>automysqlbackup_username</td>
-      <td>string</td>
-      <td>The database user that will perform the backups</td>
-      <td>debian-sys-maint user</td>
-    </tr>  
-    <tr>
-      <td>automysqlbackup_password</td>
-      <td>string</td>
-      <td>Password for the above user</td>
-      <td>debian-sys-maint user password</td>
-    </tr>   
-    <tr>
-      <td>automysqlbackup_host</td>
-      <td>string</td>
-      <td>Host name or ip address of MySQL</td>
-      <td>localhost</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_dbames</td>
-      <td>string</td>
-      <td>Space separated string of database names to include in backup</td>
-      <td>all</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_dbexclude</td>
-      <td>string</td>
-      <td>Space separated string of database names to exclude</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_createdb_stmt</td>
-      <td>string</td>
-      <td>Set to "yes" or "no" for create database statements</td>
-      <td>yes</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_backup_directory</td>
-      <td>string</td>
-      <td>Path for backups</td>
-      <td>/var/lib/automysqlbackup</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_sepdir</td>
-      <td>string</td>
-      <td>Backup directory per database, or to a single file</td>
-      <td>yes</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_doweekly</td>
-      <td>integer</td>
-      <td>Integer to reflect weekly backup day occurence</td>
-      <td>6 (Saturday)</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_mailcontent</td>
-      <td>string</td>
-      <td>Command output content (log, files, stdout, quiet)</td>
-      <td>quiet</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_mailaddr</td>
-      <td>string</td>
-      <td>username or email address to receive mailcontent</td>
-      <td>root</td>
-    </tr>
-    <tr>
-      <td>automysqlbackup_cron</td>
-      <td>hash</td>
-      <td>Cron configuration for automysqlbackup</td>
-      <td>*see default below*</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-Default cron configuration:
+**Variables**
 
 ```
+# database username and password that will perform the backups
+automysqlbackup_username: "$(grep user /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
+automysqlbackup_password: "$(grep password /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
+
+# hostname or ip address of the database server
+automysqlbackup_host: localhost
+
+# space separated string of databases to include or ignore in the backup
+automysqlbackup_dbames: "all"
+automysqlbackup_dbexclude: ""
+
+# whether to include a create database statement
+automysqlbackup_createdb_stmt: "yes"
+
+automysqlbackup_backup_directory: /var/lib/automysqlbackup
+
+# backup each database in a separate directory or everything to a single file
+automysqlbackup_sepdir: "yes"
+
+# day of the week for weekly backbackups (6 - Saturday)
+automysqlbackup_doweekly: 6
+
+# output location (log, files, stdout, quiet) and where output is sent (user / email address)
+automysqlbackup_mailcontent: quiet
+automysqlbackup_mailaddr: root
+
+# default cron configuration
 automysqlbackup_cron:
   minute: 0
   hour: 0
@@ -105,5 +44,13 @@ automysqlbackup_cron:
   month: "*"
   weekday: "*"
 ```
+
+**License**
+
+Licensed under the MIT License. See the LICENSE file for details.
+
+**Feedback, bug-reports, requests, ...**
+
+Are [welcome](https://github.com/lyrasis/ansible-automysqlbackup-role/issues)!
 
 ---
