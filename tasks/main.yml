@@ -1,13 +1,21 @@
 ---
 
-- include: debian.yml
-  when: ansible_os_family == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: check for unsupported target operating system
+  fail:
+    msg: "The operating system of the target machine ({{ inventory_hostname }}) is not currently supported"
+  when: not (ansible_os_family == 'Debian' or ansible_distribution == 'Ubuntu')
 
-- include: redhat.yml
-  when: ansible_os_family == 'RedHat' or ansible_distribution == 'CentOS'
+- name: Debian | run apt update
+  sudo: yes
+  apt: update_cache=yes
+  tags:
+    - automysqlbackup
 
-- include: default.yml
-  when: automysqlbackup_loaded_os_family|default(False) == False
+- name: Debian | install automysqlbackup
+  sudo: yes
+  apt: pkg=automysqlbackup state=latest
+  tags:
+    - automysqlbackup
 
 - name: apply automysqlbackup configuration
   sudo: yes
