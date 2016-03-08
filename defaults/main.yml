@@ -33,3 +33,5 @@ automysqlbackup_cron:
   day: "*"
   month: "*"
   weekday: "*"
+
+automysqlbackup_latest: "no"

@@ -1,9 +1,13 @@
 Automysqlbackup
 ===============
 
-[![Build Status](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role.svg?branch=master)](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role)
+[![Build Status](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role.svg?branch=master)](https://travis-ci.org/MaximeThoonsen/ansible-automysqlbackup-role)
 
 Install the automysqlbackup utility.
+
+## Requirements
+
+None.
 
 ---
 
@@ -43,14 +47,17 @@ automysqlbackup_cron:
   day: "*"
   month: "*"
   weekday: "*"
+
+# latest
+automysqlbackup_latest: "no"
+
 ```
 
-**License**
+## License
 
-Licensed under the MIT License. See the LICENSE file for details.
+MIT
 
-**Feedback, bug-reports, requests, ...**
+## Author Information
 
-Are [welcome](https://github.com/lyrasis/ansible-automysqlbackup-role/issues)!
-
----
+This role was created in 2014 by [Maxime Thoonsen](https://twitter.com/MaximeThoonsen).
+It was forked from [Mark Cooper's role](https://github.com/lyrasis/ansible-automysqlbackup-role)
