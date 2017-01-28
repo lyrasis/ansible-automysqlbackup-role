@@ -1,7 +1,7 @@
 ---
 
 galaxy_info:
-  author: Maxime Thoonsen
+  author: Mark Cooper
   description: Install and configure automysqlbackup utility
   license: MIT
   min_ansible_version: 1.4

@@ -6,7 +6,10 @@
   when: not (ansible_os_family == 'Debian' or ansible_distribution == 'Ubuntu')
 
 - name: Debian | install automysqlbackup
-  apt: pkg=automysqlbackup state=latest update_cache=yes
+  apt:
+    pkg: automysqlbackup
+    state: present
+    update_cache: yes
   tags:
     - automysqlbackup
 
@@ -21,7 +24,9 @@
     - automysqlbackup
 
 - name: remove the cron.daily file
-  file: path=/etc/cron.daily/automysqlbackup state=absent
+  file:
+    path: /etc/cron.daily/automysqlbackup
+    state: absent
   tags:
     - automysqlbackup
 
