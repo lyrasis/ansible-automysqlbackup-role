@@ -11,10 +11,11 @@ before_install:
  - sudo apt-get install -qq aptitude python-apt python-pycurl
 
 install:
-  - pip install ansible
+  - pip install ansible ansible-lint
 
 script:
   - echo localhost > inventory
+  - ansible-lint *.yml
   - ansible-playbook --syntax-check -i inventory role.yml
   - ansible-playbook -i inventory role.yml --connection=local --sudo -vvvv
   - /usr/sbin/automysqlbackup
