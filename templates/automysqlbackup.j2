@@ -4,10 +4,14 @@
 # To do this, simply edit bellow.
 
 # Username to access the MySQL server e.g. dbuser
+{% if automysqlbackup_username %}
 USERNAME={{ automysqlbackup_username }}
+{% endif %}
 
-# Username to access the MySQL server e.g. password
+# Password to access the MySQL server e.g. password
+{% if automysqlbackup_password %}
 PASSWORD={{ automysqlbackup_password }}
+{% endif %}
 
 # Host name (or IP address) of MySQL server e.g localhost
 DBHOST={{ automysqlbackup_host }}
