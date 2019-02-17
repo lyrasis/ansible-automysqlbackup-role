@@ -6,6 +6,8 @@ automysqlbackup_password: "$(grep password /etc/mysql/debian.cnf | tail -n 1 | c
 
 # hostname or ip address of the database server
 automysqlbackup_host: localhost
+# socket of your mysqld. Sometimes you need to specify that.
+automysqlbackup_socket: ""
 
 # space separated string of databases to include or ignore in the backup
 automysqlbackup_dbames: "all"
